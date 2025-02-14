@@ -9,8 +9,8 @@ This repository contains Python implementations of fundamental search and sort a
 ✅ Interactive search selection
 
 # How to Use:
-# Clone the repository:
-git clone https://github.com/yourusername/Search-and-Sort-Algorithms.git
+Clone the repository:
+git clone https://github.com/anubhav9369/Search-and-Sort-Algorithms.git
 cd Search-and-Sort-Algorithms
 
 # Run the script and test the search functions:
