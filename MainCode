@@ -1,0 +1,70 @@
+class Search:
+    def __init__(self):
+        pass
+
+    def linear_search(self, arr, key):
+        for i in range(len(arr)):
+            if arr[i] == key:
+                return i
+        return -1
+
+    def binary_search(self, arr, key, s, e):
+        if s <= e:
+            mid = (s + e) // 2
+            if arr[mid] == key:
+                return mid
+            elif arr[mid] > key:
+                return self.binary_search(arr, key, s, mid - 1)
+            else:
+                return self.binary_search(arr, key, mid + 1, e)
+        return -1
+
+
+class Sort:
+    def __init__(self, data):
+        self.data = data
+        self.length = len(data)
+
+    def insertion_sort(self):
+        for i in range(1, self.length):
+            key = self.data[i]
+            j = i - 1
+            while j >= 0 and self.data[j] > key:
+                self.data[j + 1] = self.data[j]
+                j -= 1
+            self.data[j + 1] = key
+        return self.data
+
+
+def is_sorted(arr):
+    for i in range(1, len(arr)):
+        if arr[i] < arr[i - 1]:
+            return False
+    return True
+
+def useSearch(arr, key):
+    print("enter 1 for linear search and 2 for binary search")
+    choice = int(input())
+    if choice == 1:
+        search_obj = Search()
+        index = search_obj.linear_search(arr, key)
+    else:
+        search_obj = Search()
+        if is_sorted(arr):
+            index = search_obj.binary_search(arr, key, 0, len(arr) - 1)
+
+def search_value(arr, key):
+    search_obj = Search()
+    if is_sorted(arr):
+        index = search_obj.binary_search(arr, key, 0, len(arr) - 1)
+    else:
+        index = search_obj.linear_search(arr, key)
+
+    if index != -1:
+        print(f"Element {key} found at index {index}")
+    else:
+        print(f"Element {key} not found in the array")
+
+obj = search()
+obj.linear_search(A = [2, 5, 4, 1, 10],key = 7)
+obj.binary_search(A=[1,2,3,4,5,6,7,8,9],key=3,s=0,e=8)
